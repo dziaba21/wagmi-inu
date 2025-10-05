@@ -1,183 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>$WAGMI Inu – Meme token en Solana</title>
-  <meta name="description" content="El token oficial $WAGMI Inu — community driven, 100% descentralizado y construido en Solana. WAGMI = We’re All Gonna Make It." />
-
-  <!-- OpenGraph -->
-  <meta property="og:title" content="$WAGMI Inu – Meme token en Solana" />
-  <meta property="og:description" content="El token oficial $WAGMI Inu — community driven y 100% descentralizado." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dziaba21.github.io/wagmi-inu" />
-  <meta property="og:image" content="https://ipfs.io/ipfs/bafybeihxzipnnl73bnqdqnmyqnzascon2nrihorr3esnkhv5mvnozgck4m" />
-
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="$WAGMI Inu – Meme token en Solana" />
-  <meta name="twitter:description" content="El token oficial $WAGMI Inu — community driven y 100% descentralizado." />
-  <meta name="twitter:image" content="https://ipfs.io/ipfs/bafybeihxzipnnl73bnqdqnmyqnzascon2nrihorr3esnkhv5mvnozgck4m" />
-
-  <link rel="icon" href="https://ipfs.io/ipfs/bafybeihxzipnnl73bnqdqnmyqnzascon2nrihorr3esnkhv5mvnozgck4m" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$WAGMI Inu - Meme Coin Solana</title>
   <style>
-    :root{
-      --bg:#0b0f15; --card:#121826; --text:#e7ecf3; --muted:#9fb0c3;
-      --primary:#14f195; --primary-2:#7affe1; --accent:#8a63ff; --danger:#ff477e;
-      --border: #1d2636;
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a0a0f;
+      color: #fff;
+      margin: 0;
+      padding: 0;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,"Helvetica Neue",Arial}
-    a{color:var(--primary);text-decoration:none}
-    a:hover{opacity:.9}
-    .container{max-width:1120px;margin:0 auto;padding:24px}
-    .hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
-    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1px solid var(--border);background:#101726;color:var(--text);cursor:pointer}
-    .btn.primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#04140e;border:none}
-    .btn.outline{background:transparent}
-    .btn.danger{background:linear-gradient(135deg,#ff4d84,#ff9776);color:#2b0a17;border:none}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#0f1625;color:var(--muted);font-size:13px}
-    .title{font-size:40px;line-height:1.1;margin:0}
-    .subtitle{color:var(--muted);margin-top:8px}
-    .grid{display:grid;grid-template-columns:1fr;gap:16px}
-    .copy{display:flex;gap:10px;align-items:center;word-break:break-all}
-    .mono{font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
-    footer{opacity:.65;margin-top:36px;font-size:14px}
-    img.logo{width:120px;height:120px;border-radius:24px;border:1px solid var(--border);background:#0b1220;object-fit:cover}
-    @media(min-width:880px){
-      .hero{grid-template-columns:420px 1fr}
-      .grid{grid-template-columns:repeat(3,1fr)}
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
     }
+    .logo {
+      width: 120px;
+      border-radius: 16px;
+      margin-bottom: 10px;
+    }
+    .title { font-size: 2em; font-weight: bold; margin: 5px 0; }
+    .subtitle { font-size: 1.1em; color: #bbb; }
+    .pill {
+      display: inline-block;
+      background: #222;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      margin-bottom: 5px;
+    }
+    .row { margin-top: 16px; }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      margin: 6px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .btn.primary { background: #16a34a; color: #fff; }
+    .btn.outline { background: transparent; border: 2px solid #555; color: #fff; }
+    .btn:hover { transform: scale(1.05); }
+    .card {
+      background: #16161d;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 0 8px rgba(255,255,255,0.1);
+    }
+    .mono { font-family: monospace; }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="card">
-        <div class="row">
-          <img class="logo" src="https://ipfs.io/ipfs/bafybeihxzipnnl73bnqdqnmyqnzascon2nrihorr3esnkhv5mvnozgck4m" alt="WAGMI Inu" />
-          <div>
-            <div class="pill">Solana • Meme Coin</div>
-            <h1 class="title">$WAGMI Inu</h1>
-            <p class="subtitle">El token oficial $WAGMI Inu — community driven, 100% descentralizado y construido en Solana.<br/>WAGMI = “We’re All Gonna Make It”.</p>
-          </div>
-        </div>
 
-<div class="row" style="margin-top:16px">
-  <a class="btn primary" href="https://solscan.io/token/4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx" target="_blank" rel="noopener">Ver en Solscan</a>
-  <a class="btn outline" href="https://ipfs.io/ipfs/bafkreifkkpoum...orsitxy3m" target="_blank" rel="noopener">Metadata (IPFS)</a>
-  <a class="btn outline" href="https://t.me/wagmiinuofficial" target="_blank" rel="noopener">Telegram</a>
-  <a class="btn outline" href="https://twitter.com/wagmiinu_offici" target="_blank" rel="noopener">Twitter/X</a>
-
-  <!-- Botón Raydium -->
-  <a class="btn" href="https://raydium.io/swap/?inputMint=sol&outputMint=4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx"
-     target="_blank" rel="noopener"
-     style="background:#0d6efd;border:2px solid #FFD700;color:#fff;font-weight:bold;box-shadow:0 0 12px #0d6efd,0 0 20px #FFD700;">
-     🚀 Comprar en Raydium
-  </a>
-
-  <!-- Botón Jupiter -->
-  <a class="btn" href="https://jup.ag/swap/SOL-4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx"
-     target="_blank" rel="noopener"
-     style="background:#1d9bf0;border:2px solid #FFD700;color:#fff;font-weight:bold;box-shadow:0 0 12px #1d9bf0,0 0 20px #FFD700;">
-     🌌 Comprar en Jupiter
-  </a>
-
-  <!-- Botón Birdeye -->
-  <a class="btn" href="https://birdeye.so/token/4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx?chain=solana"
-     target="_blank" rel="noopener"
-     style="background:#6f42c1;border:2px solid #FFD700;color:#fff;font-weight:bold;box-shadow:0 0 12px #6f42c1,0 0 20px #FFD700;">
-     📊 Ver en Birdeye
-  </a>
-</div>
-
-
-
-          </div>
-
-        </div>
+    <div class="row">
+      <img class="logo" src="https://ipfs.io/ipfs/bafybeihxzippnl73bnqdqmnyqnzascon2nrihorr3esnkhv5mvnozgck4m" alt="WAGMI Inu" />
+      <div>
+        <div class="pill">Solana • Meme Coin</div>
+        <h1 class="title">$WAGMI Inu</h1>
+        <p class="subtitle">El token oficial $WAGMI Inu — community driven, 100% descentralizado y construido en Solana.<br/>WAGMI = “We’re All Gonna Make It”.</p>
       </div>
+    </div>
 
-      <div class="card">
-        <h3 style="margin-top:0">Contrato (Mint)</h3>
-        <div class="copy">
-          <code id="mint" class="mono">4appHxKJtf1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx</code>
-          <button class="btn" onclick="copyMint()">Copiar</button>
-        </div>
+    <!-- Botones principales -->
+    <div class="row">
+      <a class="btn primary" href="https://solscan.io/token/4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx" target="_blank" rel="noopener">Ver en Solscan</a>
+      <a class="btn outline" href="https://ipfs.io/ipfs/bafkreifkkpoum..." target="_blank" rel="noopener">Metadata (IPFS)</a>
+      <a class="btn outline" href="https://t.me/wagmiinuofficial" target="_blank" rel="noopener">Telegram</a>
+      <a class="btn outline" href="https://twitter.com/wagmiinu_offici" target="_blank" rel="noopener">Twitter/X</a>
 
-        <div class="row" style="margin-top:14px">
-          <div class="pill">Decimales: <b class="mono" style="color:#fff">&nbsp;9</b></div>
-          <div class="pill">Supply: <b class="mono" style="color:#fff">&nbsp;1,000,000,000,000</b></div>
-        </div>
+      <!-- Botón Raydium -->
+      <a class="btn" href="https://raydium.io/swap/?inputMint=sol&outputMint=4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx"
+         target="_blank" rel="noopener"
+         style="background:#0d6efd;border:2px solid #FFD700;color:#fff;font-weight:bold;box-shadow:0 0 12px #0d6efd,0 0 20px #FFD700;">
+         🚀 Comprar en Raydium
+      </a>
 
-        <div class="card" style="margin-top:16px">
-          <b>Cómo añadir a Phantom</b>
-          <ol style="margin:10px 0 0 16px; color:var(--muted)">
-            <li>Abrir Phantom → <i>Tokens</i> → <b>Manage Token List</b>.</li>
-            <li>Pegar el mint: <span class="mono" style="color:#fff">4appHxKJtf1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx</span></li>
-            <li>Guardar ✓</li>
-          </ol>
-        </div>
+      <!-- Botón Jupiter -->
+      <a class="btn" href="https://jup.ag/swap/SOL-4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx"
+         target="_blank" rel="noopener"
+         style="background:#1d9bf0;border:2px solid #FFD700;color:#fff;font-weight:bold;box-shadow:0 0 12px #1d9bf0,0 0 20px #FFD700;">
+         🌌 Comprar en Jupiter
+      </a>
+
+      <!-- Botón Birdeye -->
+      <a class="btn" href="https://birdeye.so/token/4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx?chain=solana"
+         target="_blank" rel="noopener"
+         style="background:#6f42c1;border:2px solid #FFD700;color:#fff;font-weight:bold;box-shadow:0 0 12px #6f42c1,0 0 20px #FFD700;">
+         📊 Ver en Birdeye
+      </a>
+    </div>
+
+    <!-- Contrato -->
+    <div class="card">
+      <h3 style="margin-top:0">Contrato (Mint)</h3>
+      <div class="copy">
+        <code id="mint" class="mono">4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx</code>
       </div>
-    </section>
+    </div>
 
-    <!-- LINKS RÁPIDOS -->
-    <section style="margin-top:24px" class="grid">
-      <div class="card">
-        <h3 style="margin-top:0">Enlaces Oficiales</h3>
-        <ul style="list-style:none;padding-left:0;line-height:1.9">
-          <li>🔗 Solscan: <a href="https://solscan.io/token/4appHxKJtf1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx" target="_blank" rel="noopener">ver</a></li>
-          <li>🧾 Metadata (IPFS): <a href="https://ipfs.io/ipfs/bafkreifkkpoumscagce2laca4wirxfmtn6uzadadcf76hnjngorsitxy3m" target="_blank" rel="noopener">ipfs.io</a> • <a href="https://cloudflare-ipfs.com/ipfs/bafkreifkkpoumscagce2laca4wirxfmtn6uzadadcf76hnjngorsitxy3m" target="_blank" rel="noopener">cloudflare</a> • <a href="https://gateway.pinata.cloud/ipfs/bafkreifkkpoumscagce2laca4wirxfmtn6uzadadcf76hnjngorsitxy3m" target="_blank" rel="noopener">pinata</a></li>
-          <li>🖼 Logo (IPFS): <a href="https://ipfs.io/ipfs/bafybeihxzipnnl73bnqdqnmyqnzascon2nrihorr3esnkhv5mvnozgck4m" target="_blank" rel="noopener">ver</a></li>
-          <li>💬 Telegram: <a href="https://t.me/wagmiinuofficial" target="_blank" rel="noopener">@wagmiinuofficial</a></li>
-          <li>𝕏 Twitter: <a href="https://twitter.com/wagmiinu_offici" target="_blank" rel="noopener">@wagmiinu_offici</a></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-top:0">Estado</h3>
-        <p style="color:var(--muted);margin-top:8px">
-          • Metadata: alojada en IPFS, con gateways de respaldo.<br/>
-          • Autoridad actual: <span class="mono">2HED96mikvdcDm387zWhDSZYxrHsCzYetn3VUdcU85qE</span><br/>
-          • Red: Solana mainnet-beta.
-        </p>
-        <p class="subtitle">Para “Trusted/Verified” en exploradores: solicitar verificación en Solscan, Dexscreener, Birdeye, etc.</p>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-top:0">Roadmap inmediato</h3>
-        <ul style="margin:10px 0 0 16px;color:var(--muted);line-height:1.8">
-          <li>Crear pool en Raydium (WAGMI/SOL).</li>
-          <li>Solicitar verificación en Solscan / Dexscreener / Birdeye.</li>
-          <li>Campañas en X & Telegram (memes + comunidad).</li>
-        </ul>
-        <a class="btn danger" style="margin-top:12px" href="https://raydium.io/" target="_blank" rel="noopener">Abrir Raydium</a>
-      </div>
-    </section>
-
-    <footer class="container" style="padding-left:0">
-      © <span id="y"></span> WAGMI Inu • “We’re All Gonna Make It”
-    </footer>
   </div>
-
-  <script>
-    function copyMint(){
-      const el = document.getElementById('mint');
-      navigator.clipboard.writeText(el.textContent.trim()).then(()=>{
-        alert('Contrato copiado al portapapeles.');
-      });
-    }
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
-
-
-
-
-
-
