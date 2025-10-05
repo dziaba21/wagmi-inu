@@ -1,110 +1,215 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>$WAGMI Inu - Meme Coin Solana</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>$WAGMI Inu – Meme token en Solana</title>
+  <meta name="description" content="El token oficial $WAGMI Inu — community driven, 100% descentralizado y construido en Solana. WAGMI = We’re All Gonna Make It." />
+  <link rel="icon" href="https://ipfs.io/ipfs/bafybeihxzipnnl73bnqdqnmyqnzascon2nrihorr3esnkhv5mvnozgck4m" />
+
+  <!-- OpenGraph / Twitter -->
+  <meta property="og:title" content="$WAGMI Inu – Meme token en Solana" />
+  <meta property="og:description" content="El token oficial $WAGMI Inu — community driven y 100% descentralizado." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dziaba21.github.io/wagmi-inu/" />
+  <meta property="og:image" content="https://ipfs.io/ipfs/bafybeihxzipnnl73bnqdqnmyqnzascon2nrihorr3esnkhv5mvnozgck4m" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="$WAGMI Inu – Meme token en Solana" />
+  <meta name="twitter:description" content="El token oficial $WAGMI Inu — community driven y 100% descentralizado." />
+  <meta name="twitter:image" content="https://ipfs.io/ipfs/bafybeihxzipnnl73bnqdqnmyqnzascon2nrihorr3esnkhv5mvnozgck4m" />
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0a0a0f;
-      color: #fff;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg:#070910;
+      --card:#0e1320;
+      --text:#eaf2ff;
+      --muted:#9bb0cc;
+      --border:#1a2236;
+      --neon:#00b2ff;      /* azul eléctrico */
+      --glow:#ffd900;      /* amarillo highlight */
+      --accent:#7c4dff;   /* morado */
+      --success:#14f195;  /* solana green */
+      --danger:#ff4d84;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Ubuntu,Arial}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
+    /* ===== Animated Background ===== */
+    .bg{
+      position:fixed;inset:0;z-index:-2;
+      background:
+        radial-gradient(1200px 600px at -10% -30%, rgba(124,77,255,.12), transparent 60%),
+        radial-gradient(900px 500px at 110% 120%, rgba(0,178,255,.15), transparent 55%),
+        radial-gradient(700px 500px at 50% -20%, rgba(20,241,149,.10), transparent 60%),
+        linear-gradient(180deg,#070910 0%, #0a0f1c 100%);
+      animation:bgMove 18s linear infinite;
+      filter:saturate(110%);
     }
-    .logo {
-      width: 120px;
-      border-radius: 16px;
-      margin-bottom: 10px;
+    @keyframes bgMove{
+      0%{background-position:0 0, 0 0, 0 0, 0 0}
+      50%{background-position:10% 6%, -6% -8%, 2% 12%, 0 0}
+      100%{background-position:0 0, 0 0, 0 0, 0 0}
     }
-    .title { font-size: 2em; font-weight: bold; margin: 5px 0; }
-    .subtitle { font-size: 1.1em; color: #bbb; }
-    .pill {
-      display: inline-block;
-      background: #222;
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.9em;
-      margin-bottom: 5px;
+    .gridOverlay{
+      position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.12;
+      background:
+        repeating-linear-gradient(transparent 0 30px, #0f1628 31px 32px),
+        repeating-linear-gradient(90deg, transparent 0 30px, #0f1628 31px 32px);
+      mix-blend-mode:screen;
     }
-    .row { margin-top: 16px; }
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 6px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
+
+    /* ===== Hero ===== */
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
+    .brand{
+      display:flex;gap:16px;align-items:center;background:linear-gradient(180deg,#0f1530,#0b1023);
+      border:1px solid var(--border);border-radius:18px;padding:16px 18px;box-shadow:0 0 0 1px rgba(124,77,255,.12) inset;
     }
-    .btn.primary { background: #16a34a; color: #fff; }
-    .btn.outline { background: transparent; border: 2px solid #555; color: #fff; }
-    .btn:hover { transform: scale(1.05); }
-    .card {
-      background: #16161d;
-      padding: 16px;
-      border-radius: 12px;
-      margin-top: 20px;
-      box-shadow: 0 0 8px rgba(255,255,255,0.1);
+    .logo{
+      width:110px;height:110px;flex:0 0 auto;border-radius:22px;border:1px solid var(--border);
+      background:#0a1022;object-fit:cover;box-shadow:0 0 18px rgba(124,77,255,.25);
     }
-    .mono { font-family: monospace; }
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:#0b1226;color:var(--muted);font-size:13px}
+    .title{font-size:46px;line-height:1.1;margin:6px 0 4px}
+    .subtitle{color:var(--muted);max-width:66ch}
+
+    /* ===== Cards ===== */
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 0 18px rgba(0,0,0,.25)}
+    .grid{display:grid;grid-template-columns:1fr;gap:18px}
+    @media(min-width:920px){ .hero{grid-template-columns:480px 1fr} .grid{grid-template-columns:repeat(3,1fr)} }
+
+    /* ===== Buttons ===== */
+    .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;border-radius:12px;border:1px solid var(--border);background:#0b1426;color:var(--text);cursor:pointer;font-weight:700;transition:transform .12s ease, box-shadow .2s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:linear-gradient(135deg,var(--success),#7affe1);color:#04140e;border:none}
+    .btn.outline{background:transparent}
+    /* Neon variant */
+    .btn.neon{
+      background:linear-gradient(135deg,var(--neon) 0%, #4dd2ff 100%);color:#00131f;border:2px solid var(--glow);
+      box-shadow:0 0 14px var(--neon), 0 0 26px rgba(255,217,0,.5), inset 0 0 12px rgba(255,255,255,.25);
+      text-shadow:0 1px 0 rgba(255,255,255,.35);
+    }
+    .btn.neon:hover{box-shadow:0 0 18px var(--neon), 0 0 34px rgba(255,217,0,.7), inset 0 0 18px rgba(255,255,255,.35)}
+    .btn.neon.purple{background:linear-gradient(135deg,#6a5cff 0%, #9f84ff 100%)}
+    .btn.neon.sky{background:linear-gradient(135deg,#1da1f2 0%, #6ad3ff 100%)}
+
+    /* Copy box */
+    .copyWrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .code{padding:10px 12px;border-radius:12px;background:#0b1324;border:1px solid var(--border);font-family:ui-monospace, Menlo, Consolas, monospace}
+    .mini{font-size:13px;color:var(--muted)}
+
+    footer{opacity:.65;margin:26px 0 10px;text-align:center;font-size:14px}
   </style>
 </head>
 <body>
+  <div class="bg"></div><div class="gridOverlay"></div>
+
   <div class="container">
 
-    <div class="row">
-      <img class="logo" src="https://ipfs.io/ipfs/bafybeihxzippnl73bnqdqmnyqnzascon2nrihorr3esnkhv5mvnozgck4m" alt="WAGMI Inu" />
-      <div>
-        <div class="pill">Solana • Meme Coin</div>
-        <h1 class="title">$WAGMI Inu</h1>
-        <p class="subtitle">El token oficial $WAGMI Inu — community driven, 100% descentralizado y construido en Solana.<br/>WAGMI = “We’re All Gonna Make It”.</p>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="brand">
+        <img class="logo" alt="WAGMI Inu" src="https://ipfs.io/ipfs/bafybeihxzipnnl73bnqdqnmyqnzascon2nrihorr3esnkhv5mvnozgck4m" />
+        <div>
+          <div class="pill">Solana • Meme Coin</div>
+          <h1 class="title">$WAGMI Inu</h1>
+          <p class="subtitle">El token oficial $WAGMI Inu — community driven, 100% descentralizado y construido en Solana. WAGMI = “We’re All Gonna Make It”.</p>
+          <div class="row" style="margin-top:12px">
+            <a class="btn primary" href="https://solscan.io/token/4appHxKJtf1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx" target="_blank" rel="noopener">Ver en Solscan</a>
+            <a class="btn outline" href="https://ipfs.io/ipfs/bafkreifkkpoumscagce2laca4wirxfmtn6uzadadcf76hnjngorsitxy3m" target="_blank" rel="noopener">Metadata (IPFS)</a>
+            <a class="btn outline" href="https://t.me/wagmiinuofficial" target="_blank" rel="noopener">Telegram</a>
+            <a class="btn outline" href="https://twitter.com/wagmiinu_offici" target="_blank" rel="noopener">Twitter/X</a>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Botones principales -->
-    <div class="row">
-      <a class="btn primary" href="https://solscan.io/token/4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx" target="_blank" rel="noopener">Ver en Solscan</a>
-      <a class="btn outline" href="https://ipfs.io/ipfs/bafkreifkkpoum..." target="_blank" rel="noopener">Metadata (IPFS)</a>
-      <a class="btn outline" href="https://t.me/wagmiinuofficial" target="_blank" rel="noopener">Telegram</a>
-      <a class="btn outline" href="https://twitter.com/wagmiinu_offici" target="_blank" rel="noopener">Twitter/X</a>
+      <div class="card">
+        <h3 style="margin:.2rem 0 8px">Contrato (Mint)</h3>
+        <div class="copyWrap">
+          <code id="mint" class="code">4appHxKJtf1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx</code>
+          <button class="btn" onclick="copyMint()">Copiar</button>
+        </div>
+        <div class="row" style="margin-top:14px">
+          <div class="pill">Decimales: <b style="color:#fff">&nbsp;9</b></div>
+          <div class="pill">Supply: <b style="color:#fff">&nbsp;1,000,000,000,000</b></div>
+        </div>
 
-      <!-- Botón Raydium -->
-      <a class="btn" href="https://raydium.io/swap/?inputMint=sol&outputMint=4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx"
-         target="_blank" rel="noopener"
-         style="background:#0d6efd;border:2px solid #FFD700;color:#fff;font-weight:bold;box-shadow:0 0 12px #0d6efd,0 0 20px #FFD700;">
-         🚀 Comprar en Raydium
-      </a>
-
-      <!-- Botón Jupiter -->
-      <a class="btn" href="https://jup.ag/swap/SOL-4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx"
-         target="_blank" rel="noopener"
-         style="background:#1d9bf0;border:2px solid #FFD700;color:#fff;font-weight:bold;box-shadow:0 0 12px #1d9bf0,0 0 20px #FFD700;">
-         🌌 Comprar en Jupiter
-      </a>
-
-      <!-- Botón Birdeye -->
-      <a class="btn" href="https://birdeye.so/token/4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx?chain=solana"
-         target="_blank" rel="noopener"
-         style="background:#6f42c1;border:2px solid #FFD700;color:#fff;font-weight:bold;box-shadow:0 0 12px #6f42c1,0 0 20px #FFD700;">
-         📊 Ver en Birdeye
-      </a>
-    </div>
-
-    <!-- Contrato -->
-    <div class="card">
-      <h3 style="margin-top:0">Contrato (Mint)</h3>
-      <div class="copy">
-        <code id="mint" class="mono">4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx</code>
+        <div class="card" style="margin-top:16px">
+          <b>Cómo añadir a Phantom</b>
+          <ol class="mini" style="margin:8px 0 0 16px;line-height:1.8">
+            <li>Abrir Phantom → <i>Tokens</i> → <b>Manage Token List</b></li>
+            <li>Pegar el mint: <span style="color:#fff">4appHxKJtf1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx</span></li>
+            <li>Guardar ✓</li>
+          </ol>
+        </div>
       </div>
-    </div>
+    </section>
 
+    <!-- CTA Buttons -->
+    <section class="card" style="margin-top:18px">
+      <h3 style="margin-top:0">Compra / Trading</h3>
+      <p class="mini">Usa el DEX que prefieras. Los enlaces abren con el <b>mint correctísimo</b>.</p>
+      <div class="row">
+        <!-- Raydium -->
+        <a class="btn neon" href="https://raydium.io/swap/?inputMint=sol&outputMint=4appHxKJtf1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx"
+           target="_blank" rel="noopener">🚀 Comprar en Raydium</a>
+        <!-- Jupiter -->
+        <a class="btn neon sky" href="https://jup.ag/swap/SOL-4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx"
+           target="_blank" rel="noopener">🌌 Comprar en Jupiter</a>
+        <!-- Birdeye -->
+        <a class="btn neon purple" href="https://birdeye.so/token/4appHxJt1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx?chain=solana"
+           target="_blank" rel="noopener">📊 Ver en Birdeye</a>
+      </div>
+    </section>
+
+    <!-- Links rápidos -->
+    <section class="grid" style="margin-top:18px">
+      <div class="card">
+        <h3 style="margin-top:0">Enlaces Oficiales</h3>
+        <ul class="mini" style="list-style:none;padding-left:0;line-height:1.9">
+          <li>🔗 Solscan: <a href="https://solscan.io/token/4appHxKJtf1vLbJbphsc8tdMXJnkrZekih8VMh56PJKx" target="_blank" rel="noopener">ver</a></li>
+          <li>🧾 Metadata: <a href="https://ipfs.io/ipfs/bafkreifkkpoumscagce2laca4wirxfmtn6uzadadcf76hnjngorsitxy3m" target="_blank" rel="noopener">ipfs.io</a> • <a href="https://cloudflare-ipfs.com/ipfs/bafkreifkkpoumscagce2laca4wirxfmtn6uzadadcf76hnjngorsitxy3m" target="_blank" rel="noopener">cloudflare</a> • <a href="https://gateway.pinata.cloud/ipfs/bafkreifkkpoumscagce2laca4wirxfmtn6uzadadcf76hnjngorsitxy3m" target="_blank" rel="noopener">pinata</a></li>
+          <li>🖼 Logo: <a href="https://ipfs.io/ipfs/bafybeihxzipnnl73bnqdqnmyqnzascon2nrihorr3esnkhv5mvnozgck4m" target="_blank" rel="noopener">ver</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">Estado</h3>
+        <p class="mini">
+          • Metadata en IPFS con gateways de respaldo.<br/>
+          • Autoridad: <span class="code" style="padding:4px 8px">2HED96mikvdcDm387zWhDSZYxrHsCzYetn3VUdcU85qE</span><br/>
+          • Red: Solana mainnet-beta.
+        </p>
+        <p class="mini">Para “Trusted/Verified”: solicitar verificación en Solscan, Dexscreener, Birdeye, etc.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">Roadmap inmediato</h3>
+        <ul class="mini" style="margin:8px 0 0 16px;line-height:1.8">
+          <li>Listar pool en Raydium (WAGMI/SOL).</li>
+          <li>Verificaciones en exploradores (Solscan / Birdeye / Dexscreener).</li>
+          <li>Campañas en X y Telegram (memes + comunidad).</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> WAGMI Inu • “We’re All Gonna Make It”</footer>
   </div>
+
+  <script>
+    function copyMint(){
+      const el = document.getElementById('mint');
+      navigator.clipboard.writeText(el.textContent.trim()).then(()=>{
+        const old = el.textContent;
+        el.textContent = '¡Copiado!';
+        setTimeout(()=> el.textContent = old, 900);
+      });
+    }
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
+
